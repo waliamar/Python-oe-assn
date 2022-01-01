@@ -1,24 +1,11 @@
-a = input("First\n")
-b = input("Second\n")
-c = []
-d = []
+def lst(l1, l2):
+    result = False
+    for i in l1:
+        for j in l2:
+            if i == j:
+                result = True
+    return result
 
-for i in a:
-    if i != " ":
-        c.append(i)
 
-for i in b:
-    if i != " ":
-        d.append(i)
-
-print(c)
-print(d)
-
-state = "False"
-
-for i in c:
-    if i in d:
-        state = "True"
-        break
-
-print(state)
+print(lst([1, 2, 3], [4, 5, 6]))
+print(lst([1, 2, 3], [4, 5, 6, 3]))
