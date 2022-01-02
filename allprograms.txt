@@ -1,0 +1,661 @@
+
+
+Q 2 
+
+s = input("Input a string : ")
+if s[:2] != "is":
+    s = "is"+s
+print(s)
+
+
+Q 3 
+
+a = int(input("Type value of a : "))
+b = int(input("Type value of b : "))
+c = int(input("Type value of c : "))
+x = int(input("Type value of x : "))
+
+print("The value of (ax)^2 + bx + c is : {}".format(((a*x) ** 2)+(b*x)+c))
+
+
+Q 4 
+
+s1 = int(input("Type length of side 1 : "))
+s2 = int(input("Type length of side 2 : "))
+s3 = int(input("Type length of side 3 : "))
+
+print("The triangle is of Type : ", end="")
+
+if s1 == s2 and s2 == s3:
+    print("Equilateral")
+elif s1 != s2 and s2 != s3 and s3 != s1:
+    print("Scalene")
+else:
+    print("Isoceles")
+
+
+Q 5 
+
+n = int(input("Input integer n : "))
+print("Value of (n + nn + nnn) is : {}".format(n + n*n + n*n*n))
+
+
+Q 6 
+
+n = int(input("Type a number : "))
+if n in range(1000-100, 1000+100+1) or n in range(2000-100, 2000+100+1):
+    print(True)
+else:
+    print(False)
+
+
+Q 7 
+
+inp = input("Enter desired numbers seperated by spaces : ")
+
+a = inp.split()
+sum = 0
+
+for i in range(len(a)):
+    if int(a[i]) < 101:
+        sum += int(a[i])
+
+print("The sum is : {}".format(sum))
+
+
+Q 8 
+
+one = int(input("Enter the number of ₹1 coins : "))
+two = int(input("Enter the number of ₹2 coins : "))
+five = int(input("Enter the number of ₹5 coins : "))
+ten = int(input("Enter the number of ₹10 coins : "))
+print("The total amount is ₹", end="")
+
+total = one+two*2+five*5+ten*10
+
+print(total)
+
+
+Q 9 
+
+# a = 0
+# b = 1
+# fib = [0, 1]
+# i = 0
+
+# while fib[i] < 50:
+#     c = a+b
+#     fib.append(c)
+#     a = b
+#     b = c
+#     i += 1
+
+# print(fib)
+
+fibo = [0, 1]
+
+i = 1
+while True:
+    if (fibo[i-1]+fibo[i] < 50):
+        fibo.append(fibo[i-1] + fibo[i])
+    else:
+        break
+    i += 1
+
+print(fibo)
+
+
+Q 11 
+
+c = int(input("Enter credits earned : "))
+if c > 90:
+    print("Senior Status")
+elif c > 60:
+    print("Junior Status")
+elif c > 30:
+    print("Sophmore Status")
+else:
+    print("Freshman Status")
+
+
+Q 12 
+
+a = "yahoo.com"
+
+x = []
+count = 0
+
+for i in a:
+    if i in x:
+        count += 1
+        continue
+    temp = i
+    count += 1
+    x.append(i)
+
+counter = 0
+y = []
+
+for i in x:
+    for j in a:
+        if (i == j):
+            counter += 1
+    y.append(i+" : "+str(counter))
+    counter = 0
+
+for i in y:
+    print(i)
+
+
+Q 14 
+
+row = input("Type the number of rows \n")
+column = input("Type the number of columns \n")
+
+a = []
+
+for i in range(0, int(row)):
+    b = []
+    for j in range(0, int(column)):
+        b.append(i*j)
+    a.append(b)
+print(a)
+
+
+Q 15 
+
+a = []
+count = 0
+for i in range(100, 401):
+    for j in str(i):
+        if int(j) % 2 != 0:
+            count += 1
+        if count == 3:
+            a.append(i)
+    count = 0
+for b in a:
+    print(b, end=",")
+
+
+Q 16 
+
+a = input("Type string : ")
+a = a[::-1]
+print(a)
+
+
+Q 17 
+
+for i in range(1500, 2701):
+    if i % 7 == 0 and i % 5 == 0:
+        print(i, end=" ")
+
+
+Q 18 
+
+a = []
+for i in range(1, 10):
+    a.append("*"*(5-abs(i-5)))
+print("\n".join(a))
+
+
+Q 19 
+
+# num_4 = int(input("Enter leftmost digit\n"))
+# num_3 = int(input("Enter next digit\n"))
+# num_2 = int(input("Enter next digit\n"))
+# num_1 = int(input("Enter the last/rightmost digit\n"))
+
+# count = 0
+# y = [num_1, num_2, num_3, num_4]
+
+# for i in range(4):
+#     count += (2**i)*y[i]
+
+# print("Number = " + str(count))
+
+count = 0
+
+
+def takeinp():
+    global full
+    full = []
+    full = list(input("Enter binary number\n"))
+
+
+takeinp()
+
+for i in full:
+    if i != '0' and i != '1':
+        print("\u001b[31m Error : String not in binary format \n \u001b[0m" +
+              "Type only 1's and 0's.")
+        takeinp()
+        break
+full_rev = (full[::-1])
+for i in range(len(full_rev)):
+    count += (2**i)*int(full_rev[i])
+
+print("Number = " + str(count))
+
+
+Q 20 
+
+# Function to validate the password
+def password_check(passwd):
+
+    SpecialSym = ['$', '@', '#']
+    val = True
+
+    if len(passwd) < 6:
+        print('length should be at least 6')
+        val = False
+
+    if len(passwd) > 16:
+        print('length should be not be greater than 16')
+        val = False
+
+    if not any(char.isdigit() for char in passwd):
+        print('Password should have at least one numeral')
+        val = False
+
+    if not any(char.isupper() for char in passwd):
+        print('Password should have at least one uppercase letter')
+        val = False
+
+    if not any(char.islower() for char in passwd):
+        print('Password should have at least one lowercase letter')
+        val = False
+
+    if not any(char in SpecialSym for char in passwd):
+        print('Password should have at least one of the symbols $@#')
+        val = False
+    if val:
+        return val
+
+
+passwd = input("Type password : ")
+
+if (password_check(passwd)):
+    print("Password is valid")
+else:
+    print("Invalid Password !!")
+
+
+Q 22 
+
+s = input("Input a string : ")
+d = l = 0
+for c in s:
+    if c.isdigit():
+        d = d+1
+    elif c.isalpha():
+        l = l+1
+    else:
+        pass
+print("Letters", l)
+print("Digits", d)
+
+
+Q 23 
+
+c = float(input("Type celsius value : "))
+f = float(input("Type fahrenheit value : "))
+
+print(" {} C is {:.2f} in Fahrenheit".format(c, (c/5)*9+32), end=".")
+print(" {} F is {:.2f} in Celsius".format(f, ((f-32)/9)*5, end="."))
+
+
+Q 24 
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]  # <== Declaring the list of numbers
+count_odd = 0
+count_even = 0
+for x in numbers:
+    if not x % 2:
+        count_even += 1
+    else:
+        count_odd += 1
+print("Number of even numbers :", count_even)
+print("Number of odd numbers :", count_odd)
+
+
+Q 25 
+
+s = input("String : ")
+print("String is an integer"if s.isnumeric()
+      else "The string is not an integer")
+
+
+Q 26 
+
+n = int(input("Input number : "))
+sumn = (n*(n+1))/2
+sumsqrn = (n*(n+1)*(2*n+1))/6
+
+print(sumn**2-sumsqrn)
+
+
+Q 27 
+
+n = int(input("Type a number : "))
+s = ""
+while n != 0:
+    if(n % 2) == 0:
+        s += "0"
+    else:
+        s += "1"
+    n = n//2
+if n == 0:
+    s += "0"
+print("Binary number : " + s[::-1])
+
+
+Q 28 
+
+num = int(input("Type the number you want tables of : "))
+
+for i in range(10):
+    print("{} X {} = {}".format(num, i+1, (num*int(i+1))))
+
+
+Q 29 
+
+for i in range(1, 8):
+    for j in range(i):
+        print(i, end="")
+    print("")
+
+
+Q 30 
+
+a = input("First string : ")
+b = input("Second string : ")
+
+s = b[:2]+a[2:] + " " + a[:2]+b[2:]
+print(s)
+
+
+Q 32 
+
+s = input("String : ")
+skip = 0
+for i in range(1, len(s)):
+    if s[i] == s[0]:
+        s = s[:i]+"$"+s[i+1:]
+print(s)
+
+
+A2Q 1 
+
+a = input("string :")
+print(a[:2]+a[len(a)-2:]) if len(a) > 2 else 0
+
+
+A2Q 2 
+
+def four(a):
+    count = 0
+    for i in a:
+        if i == 4:
+            count += 1
+    return count
+
+
+print(four([1, 4, 6, 7, 4]))
+
+
+A2Q 3 
+
+a = []
+for i in range(1, 31):
+    a.append(i**2)
+print(a[6:])
+
+
+A2Q 4 
+
+def lst(l1, l2):
+    result = False
+    for i in l1:
+        for j in l2:
+            if i == j:
+                result = True
+    return result
+
+
+print(lst([1, 2, 3], [4, 5, 6]))
+print(lst([1, 2, 3], [4, 5, 6, 3]))
+
+
+A2Q 5 
+
+def fun():
+    n = int(input("length n : "))
+    strng = input("string : ")
+    result = []
+    words = strng.split(" ")
+    for i in words:
+        if len(i) > n:
+            result.append(i)
+    return result
+
+
+print(fun())
+
+
+A2Q 6 
+
+vowels = "aeiouAEIOU"
+
+a = input("String : ")
+c = 0
+for i in a:
+    if i in vowels:
+        c += 1
+print(c)
+
+
+A2Q 7 
+
+def char_freq(inp):
+    dict = {}
+    for i in inp:
+        if i in dict:
+            dict[i] += 1
+        else:
+            dict[i] = 1
+    return dict
+
+
+print(char_freq("wabba lubba dub dub"))
+
+
+A2Q 9 
+
+dict1 = {'a': 1, 'b': 2, 'c': 4, 'd': 8}
+dict2 = {'e': 16, 'c': 4, 'f': 12}
+
+print("Dict 1 : ", dict1)
+print("Dict 2 : ", dict2)
+
+
+def dict_intersect(dict1, dict2):
+    dictcomn = {}
+    for i in dict1:
+        if i in dict2:
+            if dict1[i] == dict2[i]:
+                dictcomn = {i: dict2[i]}
+    # dictcomn = {x: dict1[x] for x in dict1
+    #             if x in dict2}
+    return dictcomn
+
+
+print("Result : ", dict_intersect(dict1, dict2))
+
+
+A2Q 10 
+
+# Python code to remove duplicate elements
+def dupe(lst):
+    a = []
+    for i in lst:
+        if i not in a:
+            a.append(i)
+    return a
+
+
+lst = [2, 4, 10, 20, 5, 2, 20, 4]
+print(dupe(lst))
+
+
+A2Q 11 
+
+def string_test(s):
+    d = {"upr": 0, "lwr": 0}
+    for c in s:
+        if c.isupper():
+            d["upr"] += 1
+        elif c.islower():
+            d["lwr"] += 1
+        else:
+            pass
+    print("Original String : ", s)
+    print("No. of Upper case characters : ", d["upr"])
+    print("No. of Lower case Characters : ", d["lwr"])
+
+
+string_test('The quick Brown Fox')
+
+
+A2Q 12 
+
+
+def unique_list(l):
+    a = []
+    for i in l:
+        if i not in a:
+            a.append(i)
+    return a
+
+
+l = [1, 2, 3, 3, 3, 3, 4, 5]
+print("Sample list : "+str(l))
+print("Unique list : "+str(unique_list(l)))
+
+
+A2Q 13 
+
+def prime(n):
+    if (n == 1):
+        return False
+    elif (n == 2):
+        return True
+    else:
+        for x in range(2, n):
+            if(n % x == 0):
+                return False
+        return True
+
+
+print("Prime") if (prime(int(input("Input Number : ")))) else print("Not prime")
+
+
+A2Q 14 
+
+def is_Sublist(l, s):
+    sub_set = False
+    if s == []:
+        sub_set = True
+    elif s == l:
+        sub_set = True
+    elif len(s) > len(l):
+        sub_set = False
+
+    else:
+        for i in range(len(l)):
+            if l[i] == s[0]:
+                n = 1
+                while (n < len(s)) and (l[i+n] == s[n]):
+                    n += 1
+
+                if n == len(s):
+                    sub_set = True
+
+    return sub_set
+
+
+a = [2, 4, 3, 5, 7]
+b = [4, 3]
+c = [3, 7]
+print(is_Sublist(a, b))
+print(is_Sublist(a, c))
+
+
+A2Q 15 
+
+def gen_dict():
+    a = {}
+    for i in range(1, 21):
+        a[i] = i**2
+    print(list(a.keys()))
+
+
+gen_dict()
+
+
+A2Q 16 
+
+a = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+b = ()
+for i in a:
+    if i % 2 == 0:
+        b.append(i)
+print(b)
+
+
+A2Q 18 
+
+a = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+b = ()
+for i in a:
+    if i % 2 == 0:
+        b += (i,)
+print(b)
+
+
+A2Q 19 
+
+def count_values(dic):
+    value = []
+    count = 0
+    for i in dic.values():
+        if i not in value:
+            count += 1
+            value.append(i)
+    return count
+
+
+print(count_values({'red': 1, 'green': 1, 'blue': 2}))
+
+
+A2Q 21 
+
+def sort(s):
+    a = s.split(" ")
+    for i in range(len(a)):
+        a[i] = a[i].lower()
+    a.sort()
+    print(" ".join(a))
+
+
+sort("Ayo bruv wassup how you doin")
+
+
+A2Q 22 
+
+a = [i for i in input("Type CSV : ").split(",")]
+a[0] = str(a[0])
+a[1] = int(a[1])
+a[2] = int(a[2])
+
+print(a)
