@@ -1,9 +1,13 @@
 f = open("allprograms.txt", mode="a")
 
-for i in range(2, 33):
+for i in range(33):
     if i in (10, 13, 21, 31):
         continue
     name = "Q"+str(i)+".py"
+    if i == 0:
+        name = "Q1a.py"
+    elif i == 1:
+        name = "Q1b.py"
     f = open(name, mode="r")
     xs = f.readlines()
     f.close()

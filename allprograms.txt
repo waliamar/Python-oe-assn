@@ -1,5 +1,18 @@
 
 
+Q 0 
+
+hrs = float(input("Input the number of hours : "))
+rate = float(input("Input the rate/hour : "))
+print("The gross pay is : {}".format(hrs*rate))
+
+
+Q 1 
+
+import sys
+print(sys.version)
+
+
 Q 2 
 
 s = input("Input a string : ")
