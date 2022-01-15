@@ -1,5 +1,5 @@
 class FindZero:
-    def threeSum(self, nums):
+    def three_sum(self, nums):
         nums, result, i = sorted(nums), [], 0
         while i < len(nums) - 2:
             j, k = i + 1, len(nums) - 1
@@ -21,4 +21,4 @@ class FindZero:
         return result
 
 
-print(FindZero().threeSum([-25, -10, -7, -3, 2, 4, 8, 10]))
+print(FindZero().three_sum([-25, -10, -7, -3, 2, 4, 8, 10]))

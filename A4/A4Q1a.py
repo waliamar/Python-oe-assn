@@ -1,7 +1,7 @@
 from math import pi
 
 
-class Circle():
+class Circle:
     def __init__(self, rad):
         self.radius = int(rad)
 

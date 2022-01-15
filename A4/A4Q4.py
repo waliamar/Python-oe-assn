@@ -4,7 +4,7 @@ def readposint():
         try:
             val = int(number)
             if val < 0:
-                print("Sorry, input must be a positive integer, try again")
+                print("Type positive integer!!")
                 continue
             break
         except ValueError:

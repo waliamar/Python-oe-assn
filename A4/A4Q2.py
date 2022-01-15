@@ -1,4 +1,4 @@
-class Rocket():
+class Rocket:
     def __init__(self, x, y):
         self.latitude = int(x)
         self.longitude = int(y)
