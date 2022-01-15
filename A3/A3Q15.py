@@ -1,2 +1,2 @@
 import random
-print(random.choice('abcdefghijkl'))
+print(random.choice('valar morghulis'))

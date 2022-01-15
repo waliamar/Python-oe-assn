@@ -11,8 +11,6 @@ def dict_intersect(dict1, dict2):
         if i in dict2:
             if dict1[i] == dict2[i]:
                 dictcomn = {i: dict2[i]}
-    # dictcomn = {x: dict1[x] for x in dict1
-    #             if x in dict2}
     return dictcomn
 
 

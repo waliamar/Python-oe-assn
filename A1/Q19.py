@@ -1,16 +1,3 @@
-# num_4 = int(input("Enter leftmost digit\n"))
-# num_3 = int(input("Enter next digit\n"))
-# num_2 = int(input("Enter next digit\n"))
-# num_1 = int(input("Enter the last/rightmost digit\n"))
-
-# count = 0
-# y = [num_1, num_2, num_3, num_4]
-
-# for i in range(4):
-#     count += (2**i)*y[i]
-
-# print("Number = " + str(count))
-
 count = 0
 
 
